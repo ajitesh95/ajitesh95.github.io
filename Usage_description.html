@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-34964a9c42a384ad4f0da381454be4ec"}, "mark": {"type": "bar"}, "encoding": {"color": {"condition": {"param": "param_10", "field": "Usage Description", "type": "nominal", "legend": {"title": "Usage Description"}}, "value": "lightgray"}, "tooltip": [{"field": "Usage Description", "type": "nominal"}, {"field": "Square Footage", "type": "quantitative"}], "x": {"field": "Square Footage", "title": "Total Square Footage", "type": "quantitative"}, "y": {"field": "Usage Description", "sort": "-x", "title": "Usage Description", "type": "nominal"}}, "height": 400, "params": [{"name": "param_10", "select": {"type": "point", "fields": ["Usage Description"]}, "bind": "legend"}], "title": "Square Footage by Usage Description", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-34964a9c42a384ad4f0da381454be4ec": [{"Usage Description": "Assembly", "Square Footage": 23398578}, {"Usage Description": "Business", "Square Footage": 18212194}, {"Usage Description": "Detention & Correc", "Square Footage": 9004678}, {"Usage Description": "Education", "Square Footage": 13588626}, {"Usage Description": "Health Care", "Square Footage": 8409653}, {"Usage Description": "Industrial", "Square Footage": 10601714}, {"Usage Description": "Mercantile", "Square Footage": 309367}, {"Usage Description": "Not provided", "Square Footage": 384}, {"Usage Description": "Public", "Square Footage": 560}, {"Usage Description": "Residential", "Square Footage": 5216399}, {"Usage Description": "Storage", "Square Footage": 11369930}, {"Usage Description": "Unusual", "Square Footage": 1566374}, {"Usage Description": "Utiility & Miscellan", "Square Footage": 22089}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
